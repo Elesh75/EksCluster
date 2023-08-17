@@ -29,7 +29,7 @@ data "aws_iam_policy_document" "git_action_oidc_assume_role_policy" {
     condition {
       test     = "StringLike"
       variable = "${replace(aws_iam_openid_connect_provider.git_action.url, "https://", "")}:sub"
-      values   = ["repo:Elesh75/EksCluster:*"] # This is our created repo
+      values   = ["repo:Landmarktech21/EksCluster:*"] # This is our created repo
     }
 
     principals {
