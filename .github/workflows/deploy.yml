@@ -24,7 +24,7 @@ jobs:
       - name: AWS Cred
         uses: aws-action/configure-aws-credentials@v1
         with:
-           rele-to-assume: ${{ secrets.CI_ROLE }}
+           role-to-assume: ${{ secrets.CI_ROLE }}
            aws_region: ${{ inputs.aws_region }}
 
       - name: Code Checkout
