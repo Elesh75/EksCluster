@@ -14,7 +14,7 @@ jobs:
      uses: ./.github/workflows/deploy.yml
      with:
        work_dir: "environment/vpc"  # This is where your TFM Code/Module is 
-       aws_region: "us-east-1"
+       aws-region: "us-east-1"
      secrets:
        CI_ROLE: $ {{ secrets.CI_Role }}
     
