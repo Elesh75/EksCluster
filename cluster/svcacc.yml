@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: aws-test    # You must pass this service acc in your pod msnifest file for the pod to be able to use this service acc
+  namespace: default
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::411854276167:role/test-oidc

@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: reader
+rules:
+  - apiGroups: ["*"] # Empty string represents the core API group
+    resources: ["pods", "services", "configmaps", "deployment", "secrets"] # Customize resources you want to grant access to
+    verbs: ["get", "list", "watch"] # Custom

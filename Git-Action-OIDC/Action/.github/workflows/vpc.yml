@@ -1,0 +1,20 @@
+name: VPC Deploy
+on:
+    workflow_dispatch
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+  pull-request: write
+  actions: read
+  statuses: write
+
+jobs:
+   call-vpc-workflow:
+     uses: ./.github/workflows/deplpoy.yml
+     with:
+       work-dir: "environment/vpc"  # This is where your TFM Code/Module is 
+       aws-region: "us-east-1"
+     secrets:
+       CI_ROLE: ${{ secrets.CI_Role }}
+    

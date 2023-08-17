@@ -1,0 +1,41 @@
+name: 
+  Deploy Infrastructure
+
+on:
+  workflow_call:
+    inputs:
+      work_dir:
+         required: true
+         type: string
+      aws_region:
+        required: true
+        type: string
+    secrets:
+        CI_ROLE:
+          required: true
+
+jobs:
+ Infra-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.work_dir }}
+    steps:
+      - name: AWS Cred
+        uses: aws-action/configure-aws-credentials@v1
+        with:
+           rele-to-assume: ${{ secrets.CI_ROLE }}
+           aws_region: ${{ inputs.aws_region }}
+
+      - name: Code Checkout
+        uses: action/checkout@v3
+      - name: TFM SETUP
+        uses: hashicorp/setup-terraform@v2
+      - name: init
+        run: terraform init
+      - name: format
+        run: terraform fmt -check
+      - name: Validate
+        run: terraform validate
+      - name: Plan
+        run: terraform plan

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: private-lb
+  annotations:
+     servic.beta.kubernetes.io/aws-load-balancer-type: nlb  # could be any tyoe of L.B
+     servic.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0 
+spec:
+  type: LoadBalancer
+  selector:
+      app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetport: 8080
+
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: public-lb
+  annotations:
+     servic.beta.kubernetes.io/aws-load-balancer-type: nlb
+spec:
+  type: LoadBalancer
+  selector:
+      app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetport: 8080
