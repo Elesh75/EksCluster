@@ -1,6 +1,6 @@
 name: VPC Deploy
 on:
-    workflow_dispatch
+  workflow_dispatch
 
 permissions:
   id-token: write # This is required for requesting the JWT
