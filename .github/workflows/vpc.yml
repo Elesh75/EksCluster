@@ -16,5 +16,5 @@ jobs:
        work-dir: "environment/vpc"  # This is where your TFM Code/Module is 
        aws-region: "us-east-1"
      secrets:
-       CI_ROLE: $ {{ secrets.CI_Role }}
+       CI_ROLE: ${{ secrets.CI_Role }}
     

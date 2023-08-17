@@ -19,13 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: $ {{ inputs.work-dir }}
+        working-directory: ${{ inputs.work-dir }}
     steps:
       - name: AWS Cred
         uses: aws-actions/configure-aws-credentials@v1
         with:
-           role-to-assume: $ {{ secrets.CI_ROLE }}
-           aws-region: ${{ inputs.aws-region }}
+          role-to-assume: ${{ secrets.CI_ROLE }}
+          aws-region: ${{ inputs.aws-region }}
 
       - name: Code Checkout
         uses: actions/checkout@v3
