@@ -28,7 +28,7 @@ jobs:
            aws_region: ${{ inputs.aws_region }}
 
       - name: Code Checkout
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       - name: TFM SETUP
         uses: hashicorp/setup-terraform@v2
       - name: init
