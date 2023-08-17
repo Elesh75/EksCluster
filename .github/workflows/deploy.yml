@@ -24,11 +24,11 @@ jobs:
       - name: AWS Cred
         uses: aws-action/configure-aws-credentials@v1
         with:
-           role-to-assume: $ {{ secrets.CI_ROLE }}
-           aws-region: $ {{ inputs.aws-region }}
+           role-to-assume: ${{ secrets.CI_ROLE }}
+           aws-region: ${{ inputs.aws-region }}
 
       - name: Code Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: TFM SETUP
         uses: hashicorp/setup-terraform@v2
       - name: init
