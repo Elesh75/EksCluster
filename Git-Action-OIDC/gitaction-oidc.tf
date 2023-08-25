@@ -60,7 +60,7 @@ resource "aws_iam_policy" "git_action_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "git_attach" {
-  role       = aws_iam_role.git_action_role.name
+  role     = aws_iam_role.git_action_role.name
   policy_arn = aws_iam_policy.git_action_policy.arn
 }
 
